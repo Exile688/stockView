@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Stock Quotes
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<h2>StockView Power Trading </h2>
+
+  <form (ngSubmit)="getQuote()">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Enter symbol </ion-label>
+        <ion-input type="text" name="mySymbol" [(ngModel)]="mySymbol"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label> 
+          Currency
+        </ion-label>
+        <ion-select name="CoolBeans" [(ngModel)]="moneyType" (ionChange)="onChange(moneyType)">
+          <ion-option value="USD">USD</ion-option>
+          <ion-option value="AED">AED</ion-option>
+          <ion-option value="AFN">AFN</ion-option>
+          <ion-option value="ALL">ALL</ion-option>
+          <ion-option value="AMD">AMD</ion-option>
+          <ion-option value="ANG">ANG</ion-option>
+          <ion-option value="AOA">AOA</ion-option>
+          <ion-option value="ARS">ARS</ion-option>
+          <ion-option value="AUD">AUD</ion-option>
+          <ion-option value="CAD">CAD</ion-option>
+          <ion-option value="CHF">CHF</ion-option>
+          <ion-option value="CNY">CNY</ion-option>
+          <ion-option value="COP">COP</ion-option>
+          <ion-option value="CUP">CUP</ion-option>
+          <ion-option value="DKK">DKK</ion-option>
+          <ion-option value="EGP">EGP</ion-option>
+          <ion-option value="EUR">EUR</ion-option>
+          <ion-option value="GBP">GBP</ion-option>
+          <ion-option value="HKD">HKD</ion-option>
+          <ion-option value="ILS">ILS</ion-option>
+          <ion-option value="INR">INR</ion-option>
+          <ion-option value="IQD">IQD</ion-option>
+          <ion-option value="IRR">IRR</ion-option>
+          <ion-option value="JPY">JPY</ion-option>
+          <ion-option value="KPW">KPW</ion-option>
+          <ion-option value="KRW">KRW</ion-option>
+        </ion-select>
+      </ion-item>
+      <button ion-button type="submit"> Submit </button>
+    </ion-list>
+  </form>
+
+<ion-card *ngIf="quoteData">
+
+        <h2> {{quoteData.Name}}</h2>
+        <p> {{quoteData.Symbol}}</p>
+        <p> {{quoteData.LastPrice * currencyCalc}}</p>
+        <p> {{quoteData.Timestamp}}</p>
+
+</ion-card>
+</ion-content>
+ 
