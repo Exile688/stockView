@@ -56,7 +56,7 @@
 
         <h2> {{quoteData.Name}}</h2>
         <p> {{quoteData.Symbol}}</p>
-        <p> {{quoteData.LastPrice * currencyCalc}}</p>
+        <p> {{selectedStockPrice | currency:'USD':true:'1.2-2'}} {{moneyType}}</p>
         <p> {{quoteData.Timestamp}}</p>
 
 </ion-card>

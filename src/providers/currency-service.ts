@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/rx';
+import 'rxjs/add/operator/share';
+
 
 /*
   Generated class for the Currency provider.
@@ -11,20 +14,33 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class CurrencyService {
 
-  BaseCurrencyUrl="http://apilayer.net/api/live?access_key=b2054ee85e5ffa1db11e4d5feb023b53";
+  BaseCurrencyUrl = "http://apilayer.net/api/live?access_key=b2054ee85e5ffa1db11e4d5feb023b53";
   currentPrice: any;
+  observable: any;
+  selectedCurrency: any="USD";
 
   constructor(public http: Http) {
     console.log('Hello Currency Provider');
   }
 
-getMoney(){
- return this.http.get(this.BaseCurrencyUrl)
-  .map(res=>res.json())
-}
+  getMoney() {
+    return this.http.get(this.BaseCurrencyUrl)
+      .map(res => res.json())
+  }
 
-getPrice(){
-  this.getMoney().subscribe(res=>this.currentPrice=res)
-}
+  getPrice() {
+    if (this.currentPrice) {
+      return Observable.of(this.currentPrice);
+    }
+    else if(this.observable){
+      return this.observable;
+    }
+    else {
+      this.observable=this.http.get(this.BaseCurrencyUrl)
+      .map(res => res.json()).share();
+      return this.observable;
+    }
+
+  }
 
 }

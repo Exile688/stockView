@@ -7,17 +7,13 @@ import { CurrencyService } from '../../providers/currency-service';
   templateUrl: 'money.html'
 })
 export class MoneyPage {
- currentMoney:any;
+  currentMoney: any;
 
   constructor(public navCtrl: NavController, public moneySvc: CurrencyService) {
 
   }
 
-updateMoney(){
-  if (!this.moneySvc.currentPrice)
-  this.moneySvc.getMoney().subscribe(res=>this.moneySvc.currentPrice=res);
-  if (this.moneySvc.currentPrice)
-  this.currentMoney=this.moneySvc.currentPrice;
-}
-
+  updateMoney() {
+      this.moneySvc.getMoney().subscribe(res => this.currentMoney = res);
+  }
 }
