@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ModalController, NavParams } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { LookupService } from '../../providers/lookup-service';
 import { QuoteService } from '../../providers/quote-service'; 
 import { QuotesPage } from '../quotes/quotes';

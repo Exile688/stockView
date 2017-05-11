@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { QuoteService } from '../../providers/quote-service';
 import { CurrencyService } from '../../providers/currency-service';
-import { MoneyPage } from '../money/money';
 
 @Component({
   selector: 'page-quotes',
