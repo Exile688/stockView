@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <ion-title>
       Money Market
     </ion-title>
@@ -7,7 +7,9 @@
 </ion-header>
 
 <ion-content>
-  <button ion-button center (click)="updateMoney()"> Update Money </button>
+  <h2>StockView Power Trading </h2>
+  <p> *Amounts are relative to US Dollar* </p>
+  <button ion-button center (click)="updateMoney()" color="secondary"> Update Money </button>
   <ion-list *ngIf="currentMoney">
     <ion-list-header> Money Market </ion-list-header>
 

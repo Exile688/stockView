@@ -11,7 +11,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { FlashCard } from '../components/flash-card/flash-card';
 import { LookupService} from '../providers/lookup-service';
 import { QuoteService} from '../providers/quote-service';
 import { CurrencyService } from '../providers/currency-service';
@@ -23,7 +22,6 @@ import { CurrencyService } from '../providers/currency-service';
     MoneyPage,
     LookupPage,
     TabsPage, 
-    FlashCard
   ],
   imports: [
     BrowserModule,
